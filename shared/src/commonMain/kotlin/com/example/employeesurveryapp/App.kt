@@ -14,36 +14,35 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.employeesurveryapp.screens.SurveyDetailScreen
+import com.example.employeesurveryapp.screens.SurveyListScreen
 import org.jetbrains.compose.resources.painterResource
 
 import employeesurveryapp.shared.generated.resources.Res
 import employeesurveryapp.shared.generated.resources.compose_multiplatform
 
 @Composable
-@Preview
 fun App() {
-    MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+
+    var selectedSurveyId by remember {
+        mutableStateOf<Int?>(null)
+    }
+
+    if (selectedSurveyId == null) {
+
+        SurveyListScreen(
+            onSurveySelected = {
+                selectedSurveyId = it
             }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
+        )
+
+    } else {
+
+        SurveyDetailScreen(
+            surveyId = selectedSurveyId!!,
+            onBack = {
+                selectedSurveyId = null
             }
-        }
+        )
     }
 }
