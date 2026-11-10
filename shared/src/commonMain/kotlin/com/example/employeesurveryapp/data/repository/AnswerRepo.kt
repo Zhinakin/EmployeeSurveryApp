@@ -6,11 +6,16 @@ class AnswerRepository {
 
     private val answers = mutableListOf<Answer>()
 
-    fun getAnswers(): List<Answer> {
-        return answers
+    fun saveAnswer(answer: Answer) {
+
+        answers.removeAll {
+            it.questionId == answer.questionId
+        }
+
+        answers.add(answer)
     }
 
-    fun saveAnswer(answer: Answer) {
-        answers.add(answer)
+    fun getAnswers(): List<Answer> {
+        return answers
     }
 }

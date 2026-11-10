@@ -1,6 +1,8 @@
 package com.example.employeesurveryapp.data.model
 
-data class QuestionType(
-    val questionTypeId: Int = 0,
-    val typeName: String
-)
+enum class QuestionType {
+    RATING,
+    YES_NO,
+    TEXT,
+    MULTIPLE_CHOICE
+}

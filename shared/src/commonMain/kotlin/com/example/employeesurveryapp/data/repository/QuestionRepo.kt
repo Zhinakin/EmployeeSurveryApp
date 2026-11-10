@@ -1,6 +1,7 @@
 package com.example.employeesurveryapp.data.repository
 
 import com.example.employeesurveryapp.data.model.Question
+import com.example.employeesurveryapp.data.model.QuestionType
 
 class QuestionRepository {
 
@@ -12,7 +13,7 @@ class QuestionRepository {
             Question(
                 questionId = 1,
                 surveyId = surveyId,
-                questionTypeId = 1,
+                questionType = QuestionType.RATING,
                 questionText = "Hvordan vurderer du arbejdsmiljøet?",
                 displayOrder = 1,
                 isRequired = true
@@ -20,7 +21,7 @@ class QuestionRepository {
             Question(
                 questionId = 2,
                 surveyId = surveyId,
-                questionTypeId = 1,
+                questionType = QuestionType.RATING,
                 questionText = "Hvordan vurderer du ledelsen?",
                 displayOrder = 2,
                 isRequired = true
@@ -28,7 +29,7 @@ class QuestionRepository {
             Question(
                 questionId = 3,
                 surveyId = surveyId,
-                questionTypeId = 3,
+                questionType = QuestionType.TEXT,
                 questionText = "Har du forslag til forbedringer?",
                 displayOrder = 3,
                 isRequired = false
