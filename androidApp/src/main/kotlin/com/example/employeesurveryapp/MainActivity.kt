@@ -23,5 +23,3 @@ class MainActivity : ComponentActivity() {
 fun AppAndroidPreview() {
     App()
 }
-
-//push test

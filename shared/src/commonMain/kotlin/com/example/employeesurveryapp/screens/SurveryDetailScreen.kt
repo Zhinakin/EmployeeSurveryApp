@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
@@ -51,6 +53,7 @@ fun SurveyDetailScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
+            .statusBarsPadding()
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
@@ -188,7 +191,6 @@ fun SurveyDetailScreen(
                 }
             }
         }
-
         Button(
             onClick = {
 
@@ -203,8 +205,6 @@ fun SurveyDetailScreen(
                     )
 
                     answerRepository.saveAnswer(answer)
-
-                    println("Saved: $answer")
                 }
 
                 println("All answers:")
