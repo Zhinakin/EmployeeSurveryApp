@@ -25,7 +25,7 @@ fun SurveyListScreen(
     onSurveySelected: (Int) -> Unit
 ) {
 
-    val repository = SurveyRepository()
+    val repository = SurveyRepository
 
     val assignmentRepository = SurveyAssignmentRepository()
 

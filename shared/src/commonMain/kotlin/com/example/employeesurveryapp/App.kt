@@ -60,8 +60,19 @@ fun App() {
     } else {
 
         if (currentUser!!.roleId == 1) {
-            AdminDashboardScreen()
+
+            AdminDashboardScreen(
+                onLogout = {
+
+                    currentUser = null
+                    currentUserLoggedIn = false
+                    selectedSurveyId = null
+
+                }
+            )
+
         }
+
         else {
             if (selectedSurveyId == null) {
 
